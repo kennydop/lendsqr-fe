@@ -1,6 +1,4 @@
-$primary-color: #39cdcc;
-$alt-color: #545f7d26;
-$secondary-color: #213f7d;
+@import "../../global.scss";
 
 .Login {
   background-color: #ffffff;
@@ -18,7 +16,7 @@ $secondary-color: #213f7d;
       margin-top: 2rem;
       height: 3rem;
       img {
-        height: 1.8rem;
+        height: 1.4rem;
         object-fit: contain;
         cursor: pointer;
       }
@@ -36,7 +34,7 @@ $secondary-color: #213f7d;
     align-items: center;
     width: 50%;
     padding-right: 2rem;
-    box-shadow: -0.1px 0px 20px 0.1px rgba(205, 205, 205, 0.151);
+    box-shadow: -0.1px 0px 20px 0.1px $shadow-color;
     .form-container {
       width: 50%;
       display: flex;
@@ -83,14 +81,26 @@ $secondary-color: #213f7d;
           background-color: $primary-color;
           color: #ffffff;
           border: none;
+          font-size: 0.9rem;
           border-radius: 6px;
           padding: 0.9rem;
           font-weight: 500;
           cursor: pointer;
-          -webkit-border-radius: 6px;
+          transition: all 0.3s;
+          &:hover {
+            box-shadow: 1px 1px 20px 8px $shadow-color-x;
+          }
+          &:active {
+            box-shadow: 2px 2px 20px 20px $shadow-color-x;
+            padding: 1rem;
+          }
           -moz-border-radius: 6px;
           -ms-border-radius: 6px;
           -o-border-radius: 6px;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          -ms-transition: all 0.3s;
+          -o-transition: all 0.3s;
         }
       }
     }

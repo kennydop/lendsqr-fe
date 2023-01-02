@@ -1,0 +1,21 @@
+$primary-color: #213f7d;
+$secondary-color: #39cdcc;
+$transparent-secondary-color: #39cdcd21;
+$alt-color: #545f7d26;
+$text-color: #545f7d;
+$shadow-color: rgba(165, 165, 165, 0.13);
+$shadow-color-x: rgba(205, 205, 205, 0.151);
+$background-color: #e5e5e531;
+
+@mixin card {
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: white;
+  color: $text-color;
+  filter: drop-shadow(0 1px 8px $shadow-color);
+  border: 1px solid $alt-color;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}

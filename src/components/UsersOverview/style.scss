@@ -1,0 +1,32 @@
+@import "../../global.scss";
+
+.users-overview {
+  background-color: white;
+  @include card;
+  .users-overview-header {
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1.6fr 2fr 2fr 0.8fr 0.2fr;
+    grid-column-gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    .cat {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.3rem;
+      color: $text-color;
+      .cat-name {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: default;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .cat-icon {
+        cursor: pointer;
+      }
+    }
+  }
+}

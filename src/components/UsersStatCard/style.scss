@@ -1,0 +1,39 @@
+@import "../../global.scss";
+
+.users-stat-card {
+  height: 6.5rem;
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+  @include card;
+  &:hover {
+    filter: drop-shadow(0 5px 10px $shadow-color);
+  }
+  .icon-container {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+  .title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+  .value {
+    font-size: 1.4rem;
+    font-weight: 650;
+    margin-top: 0.2rem;
+    color: $primary-color;
+  }
+}
