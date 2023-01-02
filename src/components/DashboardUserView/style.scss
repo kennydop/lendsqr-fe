@@ -2,12 +2,6 @@
 
 .user-view {
   width: 100%;
-  .view-name {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: $primary-color;
-    margin-bottom: 1.6rem;
-  }
   .reports-container {
     display: flex;
     justify-content: space-between;
@@ -21,18 +15,28 @@
     justify-content: space-between;
     margin-top: 1rem;
     font-size: 0.9rem;
-    .length {
+    .left {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       color: $text-color;
-      .length-selector {
-        outline: none;
-        border: none;
-        background-color: transparentize($text-color, 0.7);
-        color: $primary-color;
-        border-radius: 3px;
-        padding: 0.3rem;
+      .filter {
+        cursor: pointer;
+        position: relative;
+      }
+      .length {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .length-selector {
+          outline: none;
+          border: none;
+          background-color: transparentize($text-color, 0.7);
+          color: $primary-color;
+          border-radius: 3px;
+          padding: 0.3rem;
+        }
       }
     }
     .pagination {

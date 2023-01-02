@@ -20,7 +20,7 @@ const cats = [
 
 function UsersOverview({ users, show }: Props) {
   return (
-    <div className="users-overview">
+    <div className="users-overview card">
       <div className="users-overview-header">
         {cats.map((cat) => (
           <div key={cat} className="cat">

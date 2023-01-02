@@ -1,0 +1,39 @@
+@import "../../global.scss";
+
+.user-details-card {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  .detail-cat {
+    &:not(:last-child) {
+      border-bottom: 1px solid $alt-color;
+      padding-bottom: 0.8rem;
+    }
+    &:not(:first-child) {
+      margin: 1.5rem 0;
+    }
+    .topic {
+      color: $primary-color;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .dets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      justify-content: space-between;
+      gap: 1.5rem;
+      .det-item {
+        min-height: 4rem;
+        display: flex;
+        flex-direction: column;
+        .title {
+          margin-bottom: 0.2rem;
+          font-size: 0.8rem;
+        }
+        .value {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

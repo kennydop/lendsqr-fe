@@ -1,6 +1,6 @@
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { User } from "../../types";
 import UsersOverview from "../UsersOverview/UsersOverview";
 import UsersStatCard from "../UsersStatCard/UsersStatCard";
@@ -122,9 +122,32 @@ let users: User[] = [
 
 function DashboardUserView() {
   const [show, setShow] = useState(25);
+  const [open, setOpen] = useState(false);
+
+  let filterTriggerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let handler = (e: any) => {
+      if (
+        filterTriggerRef.current &&
+        !filterTriggerRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
   return (
     <div className="user-view">
-      <div className="view-name">User</div>
+      <div className="view-name" style={{ marginBottom: "1.6rem" }}>
+        User
+      </div>
       <div className="reports-container">
         {reports.map((report) => (
           <UsersStatCard key={report.title} param={report} />
@@ -133,18 +156,63 @@ function DashboardUserView() {
       <div style={{ marginTop: "1.6rem" }}></div>
       <UsersOverview users={users} show={show} />
       <div className="overview-controller">
-        <div className="length">
-          <div>Showing</div>
-          <select
-            className="length-selector"
-            onChange={(e) => setShow(parseInt(e.target.value))}
+        <div className="left">
+          <div
+            className="filter"
+            ref={filterTriggerRef}
+            onClick={() => {
+              setOpen(!open);
+            }}
           >
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="75">75</option>
-            <option value="100">100</option>
-          </select>
-          <div>out of 100</div>
+            <FontAwesomeIcon icon={solid("filter")} />
+            <div className={`filter-menu card ${open ? "active" : "inactive"}`}>
+              <div className="filter-menu-item">
+                <div className="filter-menu-item-title">Organization</div>
+                <select>
+                  <option value="select">Select</option>
+                  <option value="lendsqr">Lendsqr</option>
+                  <option value="lendstack">Lendstack</option>
+                </select>
+              </div>
+              <div className="filter-menu-item">
+                <div className="filter-menu-item-title">Username</div>
+                <input type="text" />
+              </div>
+              <div className="filter-menu-item">
+                <div className="filter-menu-item-title">Email</div>
+                <input type="text" />
+              </div>
+              <div className="filter-menu-item">
+                <div className="filter-menu-item-title">Date</div>
+                <input type="date" />
+              </div>
+              <div className="filter-menu-item">
+                <div className="filter-menu-item-title">Phone Number</div>
+                <input type="text" />
+              </div>
+              <div className="filter-menu-item">
+                <div className="filter-menu-item-title">Status</div>
+                <select>
+                  <option value="select">Select</option>
+                  <option value="lendsqr">Lendsqr</option>
+                  <option value="lendstack">Lendstack</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div className="length">
+            <div>Showing</div>
+            <select
+              className="length-selector"
+              onChange={(e) => setShow(parseInt(e.target.value))}
+            >
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="75">75</option>
+              <option value="100">100</option>
+            </select>
+            <div>out of 100</div>
+          </div>
         </div>
         <nav className="pagination">
           <a href="/" className="pag-btn">

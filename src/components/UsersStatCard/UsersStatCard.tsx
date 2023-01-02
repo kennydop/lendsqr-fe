@@ -13,7 +13,7 @@ interface Props {
 
 function UsersStatCard({ param: { icon, color, title, value } }: Props) {
   return (
-    <div className="users-stat-card">
+    <div className="users-stat-card card">
       <div
         className="icon-container"
         style={{ backgroundColor: `${color}21`, color: color }}

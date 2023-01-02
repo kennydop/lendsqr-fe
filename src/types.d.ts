@@ -38,4 +38,5 @@ interface UserProfile {
   bvn?: string;
   address: string;
   currency?: string;
+  email?: string;
 }
