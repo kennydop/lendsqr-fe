@@ -11,6 +11,7 @@ export interface User {
   guarantor: UserProfile;
   accountBalance: string;
   accountNumber: string;
+  status?: string;
   socials: {
     facebook: string;
     instagram: string;

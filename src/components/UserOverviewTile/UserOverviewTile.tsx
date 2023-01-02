@@ -10,8 +10,12 @@ interface Props {
 }
 
 function UserOverviewTile({ user }: Props) {
-  const formatter = Intl.DateTimeFormat("en-GB", {
-    dateStyle: "full",
+  const formatter = Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
   });
   const [open, setOpen] = useState(false);
 
@@ -49,9 +53,11 @@ function UserOverviewTile({ user }: Props) {
         className="tile-item"
         title={formatter.format(new Date(user.createdAt))}
       >
-        {user.createdAt}
+        {formatter.format(new Date(user.createdAt))}
       </div>
-      <div className="status">{"Active"}</div>
+      <div className={`status ${user.status ?? "None"}`}>
+        {user.status ?? "None"}
+      </div>
       <div
         className="more"
         ref={menuRef}

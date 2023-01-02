@@ -137,3 +137,21 @@ div {
     }
   }
 }
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  font-size: 3rem;
+  color: $alt-color;
+}
+
+.error {
+  color: $red-color;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+}

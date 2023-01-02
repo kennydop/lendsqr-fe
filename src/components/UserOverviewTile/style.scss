@@ -19,10 +19,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $transparent-secondary-color;
     border-radius: 6rem;
     padding: 0.3rem;
     font-size: 0.9rem;
+    &.Active {
+      background-color: transparentize($color: #39cd62, $amount: 0.9);
+      color: #39cd62;
+    }
+    &.Blacklisted {
+      background-color: transparentize($color: #e4033b, $amount: 0.9);
+      color: #e4033b;
+    }
+    &.Inactive {
+      background-color: transparentize($color: $text-color, $amount: 0.9);
+      color: $text-color;
+    }
+    &.Pending {
+      background-color: transparentize($color: #e9b200, $amount: 0.9);
+      color: #e9b200;
+    }
   }
   .more {
     text-align: right;

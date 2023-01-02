@@ -9,7 +9,7 @@
   align-items: flex-start;
   cursor: pointer;
   &:hover {
-    filter: drop-shadow(0 5px 10px $shadow-color);
+    filter: drop-shadow(1px 5px 10px $alt-color);
   }
   .icon-container {
     height: 2.5rem;

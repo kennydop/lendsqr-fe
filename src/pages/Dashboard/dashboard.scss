@@ -1,8 +1,8 @@
 @import "../../global.scss";
 
 .Dashboard {
+  background-color: $background-color;
   .dashboard-body {
     display: flex;
-    background-color: $background-color;
   }
 }
