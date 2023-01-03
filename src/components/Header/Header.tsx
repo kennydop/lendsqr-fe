@@ -4,6 +4,7 @@ import lendsqri from "../../assets/lendsqr-i.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { User } from "../../types";
+import { useOutletContext } from "react-router-dom";
 
 interface Props {
   user: User;
@@ -17,7 +18,7 @@ export const Header = ({ user }: Props) => {
         <img src={lendsqrl} alt="Lendsqr Logo" className="lendsqr_i" />
       </div>
       <div className="search-container">
-        <input type="text" placeholder="Search" />
+        <input type="search" placeholder="Search" />
         <button>
           <FontAwesomeIcon icon={solid("magnifying-glass")} />
         </button>

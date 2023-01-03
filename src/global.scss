@@ -27,6 +27,21 @@ $red-color: #e4033b;
   color: $primary-color;
 }
 
+@mixin btn($color) {
+  background-color: $color;
+  color: white;
+  border: 2px solid $color;
+  padding: 0.5rem;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background-color: transparentize($color, 0.2);
+  }
+  &:active {
+    background-color: transparentize($color, 0.4);
+  }
+}
 @mixin outline-btn($color) {
   background-color: transparent;
   color: $color;
@@ -106,6 +121,7 @@ div {
   }
 
   .dropdown-item {
+    cursor: pointer;
     text-align: left;
     display: flex;
     align-items: center;
@@ -126,6 +142,7 @@ div {
       font-weight: 500;
       margin-bottom: 0.4rem;
     }
+
     input,
     select {
       outline: none;
@@ -136,14 +153,37 @@ div {
       width: 95%;
     }
   }
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    .filter-menu-btn {
+      width: 48%;
+      &:first-child {
+        @include outline-btn($primary-color);
+      }
+      &:last-child {
+        @include btn($secondary-color);
+      }
+    }
+  }
 }
 .loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
-  font-size: 3rem;
   color: $alt-color;
+  &.m {
+    height: 5vh;
+    font-size: 1.5rem;
+  }
+  &.l {
+    height: 10vh;
+    font-size: 2rem;
+  }
+  &.xl {
+    height: 20vh;
+    font-size: 2.5rem;
+  }
 }
 
 .error {
@@ -154,4 +194,9 @@ div {
   justify-content: center;
   align-items: center;
   height: 20vh;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
 }

@@ -2,6 +2,7 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import { User } from "../../types";
+import Loader from "../Loader/Loader";
 import UsersOverview from "../UsersOverview/UsersOverview";
 import UsersStatCard from "../UsersStatCard/UsersStatCard";
 import "./style.scss";
@@ -11,10 +12,10 @@ function DashboardUserView() {
   const [start, setStart] = useState(0);
   const [open, setOpen] = useState(false);
   const [fetchingUsers, setFetchingUsers] = useState(true);
+  const [error, setError] = useState<string>("");
   const [users, setUsers] = useState<User[]>();
   const [activeUsers, setActiveUsers] = useState(0);
   const [availablePages, setAvailablePages] = useState<number[]>([]);
-  const [error, setError] = useState<string>();
   let filterTriggerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,6 +43,7 @@ function DashboardUserView() {
   // Fetch users
   const fetchUsers = async () => {
     setFetchingUsers(true);
+    setError("");
     await fetch(
       "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users"
     )
@@ -83,8 +85,9 @@ function DashboardUserView() {
   return (
     <div className="user-view">
       <div className="view-name" style={{ marginBottom: "1.6rem" }}>
-        User
+        Users
       </div>
+      {/* stats */}
       {users && (
         <div className="reports-container">
           <UsersStatCard
@@ -123,10 +126,8 @@ function DashboardUserView() {
       )}
       <div style={{ marginTop: "1.6rem" }}></div>
       {fetchingUsers ? (
-        <div className="loader-container">
-          <FontAwesomeIcon icon={solid("spinner")} spin />
-        </div>
-      ) : error ? (
+        <Loader type="xl" />
+      ) : error.length > 0 ? (
         <div className="error">{`ERROR: ${error}`}</div>
       ) : (
         users && (
@@ -179,6 +180,10 @@ function DashboardUserView() {
                         <option value="lendstack">Lendstack</option>
                       </select>
                     </div>
+                    <div className="btns">
+                      <button className="filter-menu-btn">Reset</button>
+                      <button className="filter-menu-btn">Filter</button>
+                    </div>
                   </div>
                 </div>
                 <div className="length">
@@ -212,8 +217,12 @@ function DashboardUserView() {
                 </button>
                 {availablePages.map((page) => (
                   <button
-                    onClick={() => setStart(0 + page * show)}
-                    className="pag-item"
+                    key={page}
+                    disabled={start === page * show}
+                    onClick={() => setStart(page * show)}
+                    className={`pag-item ${
+                      start === page * show ? "active" : ""
+                    }`}
                   >
                     {page + 1}
                   </button>

@@ -1,46 +1,53 @@
 @import "../../global.scss";
-
 .tile {
-  display: grid;
-  grid-template-columns: 1.2fr 1.2fr 1.6fr 2fr 2fr 0.8fr 0.2fr;
-  grid-column-gap: 0.8rem;
+  display: flex;
   align-items: center;
+  gap: 0.8rem;
   border-bottom: 2px solid $alt-color;
   padding: 1rem 0;
-  cursor: pointer;
-  .tile-item {
-    font-size: 0.9rem;
-    text-align: left;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .status {
-    display: flex;
+  .tile-i {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1.6fr 2fr 2fr 0.8fr;
+    grid-column-gap: 0.7rem;
     align-items: center;
-    justify-content: center;
-    border-radius: 6rem;
-    padding: 0.3rem;
-    font-size: 0.9rem;
-    &.Active {
-      background-color: transparentize($color: #39cd62, $amount: 0.9);
-      color: #39cd62;
+    cursor: pointer;
+    .tile-item {
+      font-size: 0.9rem;
+      text-align: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
-    &.Blacklisted {
-      background-color: transparentize($color: #e4033b, $amount: 0.9);
-      color: #e4033b;
-    }
-    &.Inactive {
-      background-color: transparentize($color: $text-color, $amount: 0.9);
-      color: $text-color;
-    }
-    &.Pending {
-      background-color: transparentize($color: #e9b200, $amount: 0.9);
-      color: #e9b200;
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6rem;
+      padding: 0.3rem;
+      font-size: 0.9rem;
+      &.Active {
+        background-color: transparentize($color: #39cd62, $amount: 0.9);
+        color: #39cd62;
+      }
+      &.Blacklisted {
+        background-color: transparentize($color: #e4033b, $amount: 0.9);
+        color: #e4033b;
+      }
+      &.Inactive {
+        background-color: transparentize($color: $text-color, $amount: 0.9);
+        color: $text-color;
+      }
+      &.Pending {
+        background-color: transparentize($color: #e9b200, $amount: 0.9);
+        color: #e9b200;
+      }
     }
   }
   .more {
     text-align: right;
     position: relative;
+    width: 0.8rem;
+    cursor: pointer;
   }
 }

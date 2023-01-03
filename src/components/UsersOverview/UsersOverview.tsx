@@ -106,25 +106,30 @@ function UsersOverview({ _users, show, start }: Props) {
   return (
     <div className="users-overview card">
       <div className="users-overview-header">
-        {cats.map((cat) => (
-          <div key={cat} className="cat">
-            <div className="cat-name">{cat}</div>
-            <FontAwesomeIcon
-              icon={
-                sort === cat
-                  ? order === "asc"
-                    ? solid("arrow-down-wide-short")
-                    : solid("arrow-up-wide-short")
-                  : solid("arrow-down-wide-short")
-              }
-              className="cat-icon"
-              onClick={() =>
-                sortUsers(cat, sort === cat && order === "asc" ? "desc" : "asc")
-              }
-            />
-          </div>
-        ))}
-        <div></div>
+        <div className="cats">
+          {cats.map((cat) => (
+            <div key={cat} className="cat">
+              <div className="cat-name">{cat}</div>
+              <FontAwesomeIcon
+                icon={
+                  sort === cat
+                    ? order === "asc"
+                      ? solid("arrow-down-wide-short")
+                      : solid("arrow-up-wide-short")
+                    : solid("arrow-down-wide-short")
+                }
+                className="cat-icon"
+                onClick={() =>
+                  sortUsers(
+                    cat,
+                    sort === cat && order === "asc" ? "desc" : "asc"
+                  )
+                }
+              />
+            </div>
+          ))}
+        </div>
+        <div className="more-spacer"></div>
       </div>
       {users &&
         users.map((user: User, index: number) => {
