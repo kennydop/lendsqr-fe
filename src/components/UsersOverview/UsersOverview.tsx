@@ -108,7 +108,7 @@ function UsersOverview({ _users, show, start }: Props) {
       <div className="users-overview-header">
         <div className="cats">
           {cats.map((cat) => (
-            <div key={cat} className="cat">
+            <div key={cat} className={`cat ${cat}`}>
               <div className="cat-name">{cat}</div>
               <FontAwesomeIcon
                 icon={

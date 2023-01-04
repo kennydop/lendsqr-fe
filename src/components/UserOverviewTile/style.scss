@@ -12,12 +12,36 @@
     grid-column-gap: 0.7rem;
     align-items: center;
     cursor: pointer;
+    @include lt-lg {
+      grid-template-columns: 1.2fr 1.6fr 2fr 2fr 0.8fr;
+    }
+    @include lt-md {
+      grid-template-columns: 1.2fr 1.6fr 0.8fr;
+    }
+    @include lt-sm {
+      grid-template-columns: 1.2fr 1.6fr;
+    }
     .tile-item {
       font-size: 0.9rem;
       text-align: left;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+      &.org {
+        @include lt-lg {
+          display: none;
+        }
+      }
+      &.phone {
+        @include lt-md {
+          display: none;
+        }
+      }
+      &.date {
+        @include lt-md {
+          display: none;
+        }
+      }
     }
     .status {
       display: flex;
@@ -26,6 +50,9 @@
       border-radius: 6rem;
       padding: 0.3rem;
       font-size: 0.9rem;
+      @include lt-sm {
+        display: none;
+      }
       &.Active {
         background-color: transparentize($color: #39cd62, $amount: 0.9);
         color: #39cd62;

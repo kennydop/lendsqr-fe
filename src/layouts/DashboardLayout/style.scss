@@ -2,11 +2,15 @@
 
 .Dashboard {
   background-color: $background-color;
+  position: relative;
   .dashboard-body {
     display: flex;
     .dashboard-view-area {
       flex: 1;
       padding: 6.5rem 1.8rem 0rem 1.8rem;
+      @include lt-sm {
+        padding: 6.5rem 1.2rem 0rem 1.2rem;
+      }
     }
   }
 }

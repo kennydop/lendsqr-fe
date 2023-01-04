@@ -16,27 +16,26 @@ function App() {
     const _user = localStorage.getItem("user");
     if (_user) {
       setUser(JSON.parse(_user));
-      navigator("/dashboard/users");
     } else {
       navigator("/login");
     }
     setLoading(false);
-  }, []);
+  }, [navigator]);
 
   return loading ? (
     <Loader type="xl" />
   ) : (
-    user && (
-      <Routes>
-        <Route path="/" element={!user && <Login />} />
-        <Route path="/login" element={<Login />} />
+    <Routes>
+      <Route path="/" element={!user && <Login />} />
+      <Route path="/login" element={<Login />} />
+      {user && (
         <Route path="/dashboard" element={<DashboardLayout user={user} />}>
           <Route index path="users" element={<DashboardUserView />} />
           <Route path="users/:id" element={<UserDetailsView />} />
         </Route>
-        <Route path="*" element={<h1>404</h1>} />
-      </Routes>
-    )
+      )}
+      <Route path="*" element={<div />} />
+    </Routes>
   );
 }
 

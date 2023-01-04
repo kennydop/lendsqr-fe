@@ -8,6 +8,99 @@ $shadow-color-x: rgba(205, 205, 205, 0.151);
 $background-color: #e5e5e531;
 $red-color: #e4033b;
 
+// media aliases and breakpoints
+$screen-sm-min: 600px;
+$screen-md-min: 960px;
+$screen-lg-min: 1280px;
+$screen-xl-min: 1920px;
+
+$screen-xs-max: 599px;
+$screen-sm-max: 959px;
+$screen-md-max: 1279px;
+$screen-lg-max: 1919px;
+$screen-xl-max: 5000px;
+
+// media devices
+@mixin xs {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+// media lt queries
+@mixin lt-sm {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin lt-md {
+  @media screen and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin lt-lg {
+  @media screen and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lt-xl {
+  @media screen and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+// media gt queries
+@mixin gt-xs {
+  @media screen and (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin gt-sm {
+  @media screen and (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @media screen and (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin gt-lg {
+  @media screen and (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
 .card {
   padding: 1rem;
   border-radius: 4px;
@@ -58,6 +151,12 @@ $red-color: #e4033b;
   }
 }
 
+.lendsqr_i {
+  @include lt-md {
+    display: none;
+  }
+}
+
 .capitalize {
   text-transform: uppercase;
 }
@@ -66,14 +165,23 @@ $red-color: #e4033b;
   font-size: 1.5rem;
   font-weight: 600;
   color: $primary-color;
+  @include md {
+    font-size: 1.2rem;
+  }
 }
 
 .txt-li {
   font-size: 1rem;
+  @include md {
+    font-size: 0.9rem;
+  }
 }
 
 .txt {
   font-size: 0.9rem;
+  @include md {
+    font-size: 0.8rem;
+  }
 }
 div {
   overflow-wrap: break-word;
@@ -135,6 +243,7 @@ div {
 
 .filter-menu {
   @include popup(auto, auto, 0, 0, 13rem);
+  z-index: 12;
   .filter-menu-item {
     margin-bottom: 0.7rem;
     .filter-menu-item-title {
@@ -172,11 +281,11 @@ div {
   justify-content: center;
   align-items: center;
   color: $alt-color;
-  &.m {
+  &.md {
     height: 5vh;
     font-size: 1.5rem;
   }
-  &.l {
+  &.lg {
     height: 10vh;
     font-size: 2rem;
   }
@@ -199,4 +308,38 @@ div {
 .link {
   text-decoration: none;
   color: inherit;
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  &.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    visibility: visible;
+    transition: 500ms ease;
+  }
+  &.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transition: 500ms ease;
+  }
+  &.active-transparent {
+    opacity: 1;
+    visibility: visible;
+    transition: 500ms ease;
+  }
+}
+
+.lg-hide {
+  @include lt-lg {
+    display: none;
+  }
+  @include lt-md {
+    display: block;
+  }
 }

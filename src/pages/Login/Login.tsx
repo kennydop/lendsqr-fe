@@ -1,19 +1,23 @@
 import lendsqrl from "../../assets/lendsqr-l.png";
 import lendsqri from "../../assets/lendsqr-i.png";
 import pablo_signin from "../../assets/pablo-sign-in.png";
-import "./login.scss";
 import { User } from "../../types";
 import { useNavigate } from "react-router-dom";
+import "./login.scss";
+import { useState } from "react";
+import Loader from "../../components/Loader/Loader";
 
 function Login() {
   const navigator = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   async function loginUser(e: any) {
+    setLoading(true);
     e.preventDefault();
     let user: User = {
       createdAt: "2072-12-27T03:44:22.522Z",
       orgName: "labore-dolor-et",
-      userName: "Sasso",
+      userName: "Kenny",
       password: e.target[1].value,
       email: e.target[0].value,
       phoneNumber: "(553) 208-0727 731321",
@@ -22,7 +26,7 @@ function Login() {
         firstName: "Sasso",
         lastName: "Clinton",
         phoneNumber: "494-278-7946",
-        avatar: "https://picsum.photos/200",
+        avatar: "https://picsum.photos/700",
         gender: "Male",
         bvn: "815809412",
         address: "Gusikowski Locks",
@@ -54,7 +58,10 @@ function Login() {
       id: "mingw64",
     };
     localStorage.setItem("user", JSON.stringify(user));
-    navigator("/dashboard/users");
+    setTimeout(() => {
+      navigator("/dashboard/users");
+      setLoading(false);
+    }, 1500);
   }
 
   return (
@@ -92,7 +99,7 @@ function Login() {
               />
               <a href="/">FORGOT PASSWORD?</a>
               <button type="submit" className="submit">
-                Login
+                {loading ? <Loader type="sm" /> : "Login"}
               </button>
             </form>
           </div>

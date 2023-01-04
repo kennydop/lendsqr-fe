@@ -9,6 +9,9 @@
     margin-bottom: 1rem;
     .more-spacer {
       width: 0.8rem;
+      @include lt-md {
+        width: 0.6rem;
+      }
     }
     .cats {
       flex: 1;
@@ -16,6 +19,15 @@
       grid-template-columns: 1.2fr 1.2fr 1.6fr 2fr 2fr 0.8fr;
       grid-column-gap: 0.7rem;
       align-items: center;
+      @include lt-lg {
+        grid-template-columns: 1.2fr 1.6fr 2fr 2fr 0.8fr;
+      }
+      @include lt-md {
+        grid-template-columns: 1.2fr 1.6fr 0.8fr;
+      }
+      @include lt-sm {
+        grid-template-columns: 1.2fr 1.6fr;
+      }
       .cat {
         display: flex;
         align-items: center;
@@ -33,6 +45,26 @@
         }
         .cat-icon {
           cursor: pointer;
+        }
+        &.Organization {
+          @include lt-lg {
+            display: none;
+          }
+        }
+        &.Phone {
+          @include lt-md {
+            display: none;
+          }
+        }
+        &.Date {
+          @include lt-md {
+            display: none;
+          }
+        }
+        &.Status {
+          @include lt-sm {
+            display: none;
+          }
         }
       }
     }

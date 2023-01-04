@@ -34,15 +34,15 @@ const settingsNavLinks = [
 
 function DashboardLeftNav() {
   return (
-    <div className="dashboard-left-nav">
+    <div className="dashboard-left-nav close">
       <div className="org">
         <FontAwesomeIcon icon={solid("briefcase")} />
-        <p>Switch Organization</p>
+        <p className="lg-hide">Switch Organization</p>
         <FontAwesomeIcon icon={solid("chevron-down")} className="chevdown" />
       </div>
       <DashboardNavItem name="Dashboard" icon={solid("house-chimney")} />
       <div className="nav-group">
-        <p className="nav-group-name">Customers</p>
+        <p className="nav-group-name lg-hide">Customers</p>
         <div className="navItems">
           {customerNavLinks.map((navLink) => (
             <DashboardNavItem
@@ -55,7 +55,7 @@ function DashboardLeftNav() {
         </div>
       </div>
       <div className="nav-group">
-        <p className="nav-group-name">Business</p>
+        <p className="nav-group-name lg-hide">Business</p>
         <div className="navItems">
           {businessNavLinks.map((navLink) => (
             <DashboardNavItem
@@ -68,7 +68,7 @@ function DashboardLeftNav() {
         </div>
       </div>
       <div className="nav-group">
-        <p className="nav-group-name">Settings</p>
+        <p className="nav-group-name lg-hide">Settings</p>
         <div className="navItems">
           {settingsNavLinks.map((navLink) => (
             <DashboardNavItem

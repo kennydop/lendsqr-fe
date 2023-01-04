@@ -4,7 +4,7 @@ import lendsqri from "../../assets/lendsqr-i.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { User } from "../../types";
-import { useOutletContext } from "react-router-dom";
+import { toggleNavModal } from "../../helpers/modal";
 
 interface Props {
   user: User;
@@ -16,6 +16,9 @@ export const Header = ({ user }: Props) => {
       <div className="logo-container">
         <img src={lendsqri} alt="Lendsqr Logo" className="lendsqr_l" />
         <img src={lendsqrl} alt="Lendsqr Logo" className="lendsqr_i" />
+        <button className="m-bars" onClick={() => toggleNavModal()}>
+          <FontAwesomeIcon icon={solid("bars")} />
+        </button>
       </div>
       <div className="search-container">
         <input type="search" placeholder="Search" />
@@ -24,6 +27,10 @@ export const Header = ({ user }: Props) => {
         </button>
       </div>
       <div className="nav-container">
+        <FontAwesomeIcon
+          icon={solid("magnifying-glass")}
+          className="sm-search"
+        />
         <a href="/" className="docs_a">
           Docs
         </a>

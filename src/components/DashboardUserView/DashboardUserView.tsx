@@ -1,7 +1,8 @@
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { User } from "../../types";
+import FilterMenu from "../FilterMenu/FilterMenu";
 import Loader from "../Loader/Loader";
 import UsersOverview from "../UsersOverview/UsersOverview";
 import UsersStatCard from "../UsersStatCard/UsersStatCard";
@@ -10,35 +11,15 @@ import "./style.scss";
 function DashboardUserView() {
   const [show, setShow] = useState(25);
   const [start, setStart] = useState(0);
-  const [open, setOpen] = useState(false);
   const [fetchingUsers, setFetchingUsers] = useState(true);
   const [error, setError] = useState<string>("");
   const [users, setUsers] = useState<User[]>();
   const [activeUsers, setActiveUsers] = useState(0);
   const [availablePages, setAvailablePages] = useState<number[]>([]);
-  let filterTriggerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchUsers();
   }, []);
-
-  // Close filter menu when clicked outside
-  useEffect(() => {
-    let handler = (e: any) => {
-      if (
-        filterTriggerRef.current &&
-        !filterTriggerRef.current.contains(e.target)
-      ) {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  });
 
   // Fetch users
   const fetchUsers = async () => {
@@ -135,57 +116,9 @@ function DashboardUserView() {
             <UsersOverview _users={users!} show={show} start={start} />
             <div className="overview-controller">
               <div className="left">
-                <div
-                  className="filter"
-                  ref={filterTriggerRef}
-                  onClick={() => {
-                    setOpen(!open);
-                  }}
-                >
-                  <FontAwesomeIcon icon={solid("filter")} />
-                  <div
-                    className={`filter-menu card ${
-                      open ? "active" : "inactive"
-                    }`}
-                  >
-                    <div className="filter-menu-item">
-                      <div className="filter-menu-item-title">Organization</div>
-                      <select>
-                        <option value="select">Select</option>
-                        <option value="lendsqr">Lendsqr</option>
-                        <option value="lendstack">Lendstack</option>
-                      </select>
-                    </div>
-                    <div className="filter-menu-item">
-                      <div className="filter-menu-item-title">Username</div>
-                      <input type="text" />
-                    </div>
-                    <div className="filter-menu-item">
-                      <div className="filter-menu-item-title">Email</div>
-                      <input type="text" />
-                    </div>
-                    <div className="filter-menu-item">
-                      <div className="filter-menu-item-title">Date</div>
-                      <input type="date" />
-                    </div>
-                    <div className="filter-menu-item">
-                      <div className="filter-menu-item-title">Phone Number</div>
-                      <input type="text" />
-                    </div>
-                    <div className="filter-menu-item">
-                      <div className="filter-menu-item-title">Status</div>
-                      <select>
-                        <option value="select">Select</option>
-                        <option value="lendsqr">Lendsqr</option>
-                        <option value="lendstack">Lendstack</option>
-                      </select>
-                    </div>
-                    <div className="btns">
-                      <button className="filter-menu-btn">Reset</button>
-                      <button className="filter-menu-btn">Filter</button>
-                    </div>
-                  </div>
-                </div>
+                {/* filter menu */}
+                <FilterMenu />
+                {/* pagination length */}
                 <div className="length">
                   <div>Showing</div>
                   <select
@@ -203,6 +136,7 @@ function DashboardUserView() {
                   <div>out of 100</div>
                 </div>
               </div>
+              {/* pagination */}
               <nav className="pagination">
                 <button
                   disabled={start === 0}

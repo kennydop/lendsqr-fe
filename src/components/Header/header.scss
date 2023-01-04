@@ -2,7 +2,7 @@
 
 header {
   display: flex;
-  padding: 0 3rem;
+  padding: 0 1.8rem;
   align-items: center;
   justify-content: space-between;
   background-color: white;
@@ -12,6 +12,9 @@ header {
   right: 0px;
   top: 0px;
   box-shadow: 0px 1px 14px 0.1px $shadow-color;
+  @include lt-sm {
+    padding: 0 1.2rem;
+  }
   .logo-container {
     display: flex;
     gap: 0.5rem;
@@ -23,11 +26,28 @@ header {
       object-fit: contain;
       cursor: pointer;
     }
+    .m-bars {
+      display: none;
+      color: $primary-color;
+      cursor: pointer;
+      font-size: 1.4rem;
+      margin-left: 0.5rem;
+      outline: none;
+      background: transparent;
+      border: none;
+      text-align: center;
+      @include lt-md {
+        display: block;
+      }
+    }
   }
   .search-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    @include lt-md {
+      display: none;
+    }
     input {
       border-top-left-radius: 6px;
       border-bottom-left-radius: 6px;
@@ -57,6 +77,13 @@ header {
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    .sm-search {
+      display: none;
+      color: $secondary-color;
+      @include lt-md {
+        display: block;
+      }
+    }
     .docs_a {
       color: $primary-color;
       font-size: 1rem;
@@ -85,6 +112,9 @@ header {
         font-size: 1rem;
         cursor: pointer;
         font-weight: 600;
+        @include lt-md {
+          display: none;
+        }
       }
       .caret-down {
         color: $primary-color;

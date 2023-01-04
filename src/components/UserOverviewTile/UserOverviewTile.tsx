@@ -39,20 +39,20 @@ function UserOverviewTile({ user }: Props) {
   return (
     <div className="tile">
       <Link to={`/dashboard/users/${user.id}`} className="link tile-i">
-        <div className="tile-item" title={user.orgName}>
+        <div className="tile-item org" title={user.orgName}>
           {user.orgName}
         </div>
-        <div className="tile-item" title={user.userName}>
+        <div className="tile-item username" title={user.userName}>
           {user.userName}
         </div>
-        <div className="tile-item" title={user.email}>
+        <div className="tile-item email" title={user.email}>
           {user.email}
         </div>
-        <div className="tile-item" title={user.phoneNumber}>
+        <div className="tile-item phone" title={user.phoneNumber}>
           {user.phoneNumber}
         </div>
         <div
-          className="tile-item"
+          className="tile-item date"
           title={formatter.format(new Date(user.createdAt))}
         >
           {formatter.format(new Date(user.createdAt))}

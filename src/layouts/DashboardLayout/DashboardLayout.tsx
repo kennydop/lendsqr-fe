@@ -3,6 +3,7 @@ import { Header } from "../../components/Header/Header";
 import "./style.scss";
 import { Outlet } from "react-router-dom";
 import { User } from "../../types";
+import { closeModal } from "../../helpers/modal";
 
 interface Props {
   user: User;
@@ -11,6 +12,7 @@ interface Props {
 const DashboardLayout = ({ user }: Props) => {
   return (
     <div className="Dashboard">
+      <div className="modal-bg inactive" onClick={() => closeModal()}></div>
       <Header user={user} />
       <div className="dashboard-body">
         <DashboardLeftNav />
