@@ -4,7 +4,7 @@ import DashboardNavItem from "../DashboardNavItem/DashboardNavItem";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 const customerNavLinks = [
-  { name: "Users", icon: solid("user-group"), active: true },
+  { name: "Users", icon: solid("user-group") },
   { name: "Gurantors", icon: solid("users") },
   { name: "Loans", icon: solid("sack-dollar") },
   { name: "Descision Models", icon: solid("handshake") },
@@ -15,7 +15,7 @@ const customerNavLinks = [
 ];
 
 const businessNavLinks = [
-  { name: "Organization", icon: solid("briefcase"), active: false },
+  { name: "Organization", icon: solid("briefcase") },
   { name: "Loan Products", icon: solid("hand-holding-dollar") },
   { name: "Savings Products", icon: solid("building-columns") },
   { name: "Fees and Charges", icon: solid("coins") },
@@ -27,7 +27,7 @@ const businessNavLinks = [
 ];
 
 const settingsNavLinks = [
-  { name: "Preferences", icon: solid("sliders"), active: false },
+  { name: "Preferences", icon: solid("sliders") },
   { name: "Fees and Pricing", icon: solid("percent") },
   { name: "Audit Logs", icon: solid("list-check") },
 ];
@@ -49,7 +49,6 @@ function DashboardLeftNav() {
               key={navLink.name}
               name={navLink.name}
               icon={navLink.icon}
-              active={navLink?.active ?? false}
             />
           ))}
         </div>
@@ -62,7 +61,6 @@ function DashboardLeftNav() {
               key={navLink.name}
               name={navLink.name}
               icon={navLink.icon}
-              active={navLink?.active ?? false}
             />
           ))}
         </div>
@@ -75,7 +73,6 @@ function DashboardLeftNav() {
               key={navLink.name}
               name={navLink.name}
               icon={navLink.icon}
-              active={navLink?.active ?? false}
             />
           ))}
         </div>

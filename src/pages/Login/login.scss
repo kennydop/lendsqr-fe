@@ -58,6 +58,9 @@
       width: 65%;
       display: flex;
       flex-direction: column;
+      @include lt-xl {
+        width: 50%;
+      }
       @include lt-sm {
         width: 90%;
       }
