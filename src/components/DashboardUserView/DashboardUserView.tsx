@@ -18,7 +18,15 @@ function DashboardUserView() {
   const [availablePages, setAvailablePages] = useState<number[]>([]);
 
   useEffect(() => {
-    fetchUsers();
+    const jsonCachedUsers = localStorage.getItem("users");
+    if (jsonCachedUsers !== null) {
+      const cachedUsers = JSON.parse(jsonCachedUsers);
+      setUsers(cachedUsers);
+      setFetchingUsers(false);
+      generateAvailableUsers(show, cachedUsers.length);
+    } else {
+      fetchUsers();
+    }
   }, []);
 
   // Fetch users
@@ -41,6 +49,7 @@ function DashboardUserView() {
           }
           return user;
         });
+        localStorage.setItem("users", JSON.stringify(_res));
         setActiveUsers(_actU);
         setUsers(_res);
         generateAvailableUsers(show, _res.length);

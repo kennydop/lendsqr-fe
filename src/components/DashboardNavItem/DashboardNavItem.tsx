@@ -15,21 +15,25 @@ function DashboardNavItem({ name, icon }: Props) {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if (nav === undefined) {
-      if (
-        window.location.pathname === "/dashboard" &&
-        name.toLowerCase() === "dashboard"
-      ) {
-        setActive(true);
-      } else if (
-        window.location.pathname.startsWith("/dashboard/users/") &&
-        name.toLowerCase() === "users"
-      ) {
-        setActive(true);
-      }
+    console.log(name, "->", nav);
+    if (
+      nav === undefined &&
+      window.location.pathname.startsWith("/dashboard/users/") &&
+      name.toLowerCase() === "users"
+    ) {
+      console.log("ibi users");
+      setActive(true);
+    } else if (
+      window.location.pathname === "/" &&
+      name.toLowerCase() === "dashboard"
+    ) {
+      console.log("ibi dashboard");
+      setActive(true);
     } else if (nav?.toLowerCase() === name.toLowerCase()) {
+      console.log(`ibi ${name}`);
       setActive(true);
     } else {
+      console.log("not active");
       setActive(false);
     }
   }, [nav, name]);

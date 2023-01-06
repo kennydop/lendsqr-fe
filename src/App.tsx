@@ -3,7 +3,6 @@ import Login from "./pages/Login/Login";
 import Loader from "./components/Loader/Loader";
 import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
-import DashboardUserView from "./components/DashboardUserView/DashboardUserView";
 import UserDetailsView from "./components/UserDetailsView/UserDetailsView";
 import Dashboard from "./pages/Dashboard";
 
@@ -12,7 +11,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   function getUser() {
-    console.log("fetching user");
     setLoading(true);
     const _user = localStorage.getItem("user");
 
@@ -23,7 +21,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("useEffect");
     getUser();
     window.addEventListener("storage", getUser);
 
