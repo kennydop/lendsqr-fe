@@ -14,10 +14,10 @@ function Login() {
     e.preventDefault();
     let user: User = {
       createdAt: "2072-12-27T03:44:22.522Z",
-      orgName: "labore-dolor-et",
+      orgName: "lenrrr",
       userName: "Kenny",
-      password: e.target[1].value,
-      email: e.target[0].value,
+      password: e.target[1]?.value,
+      email: e.target[0]?.value,
       phoneNumber: "(553) 208-0727 731321",
       lastActiveDate: "2099-02-28T23:17:40.013Z",
       profile: {
