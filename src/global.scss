@@ -176,6 +176,12 @@ $screen-xl-max: 5000px;
     font-size: 0.9rem;
   }
 }
+.txt-sm {
+  font-size: 0.8rem;
+  @include md {
+    font-size: 0.7rem;
+  }
+}
 
 .txt {
   font-size: 0.9rem;

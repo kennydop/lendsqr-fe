@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   function getUser() {
+    console.log("fetching user");
     setLoading(true);
     const _user = localStorage.getItem("user");
 

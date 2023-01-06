@@ -30,9 +30,15 @@ const settingsNavLinks = [
   { name: "Preferences", icon: solid("sliders") },
   { name: "Fees and Pricing", icon: solid("percent") },
   { name: "Audit Logs", icon: solid("list-check") },
+  { name: "System Messaging", icon: solid("mail-bulk") },
 ];
 
 function DashboardLeftNav() {
+  const logOut = () => {
+    localStorage.removeItem("user");
+    (window as Window).location = "/";
+  };
+
   return (
     <div className="dashboard-left-nav close">
       <div className="org">
@@ -76,6 +82,13 @@ function DashboardLeftNav() {
             />
           ))}
         </div>
+      </div>
+      <div className="nav-footer">
+        <div className="dashboard-nav-item" onClick={() => logOut()}>
+          <FontAwesomeIcon icon={solid("sign-out")} />
+          <p className="lg-hide">Log Out</p>
+        </div>
+        <p className="txt-sm version lg-hide">v1.2.0</p>
       </div>
     </div>
   );

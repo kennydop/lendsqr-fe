@@ -59,9 +59,9 @@ function Login() {
     };
     localStorage.setItem("user", JSON.stringify(user));
     setTimeout(() => {
-      navigator("/dashboard/users");
+      (window as Window).location = "/dashboard/users";
       setLoading(false);
-    }, 1500);
+    }, 1000);
   }
 
   return (

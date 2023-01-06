@@ -54,4 +54,11 @@
       color: $primary-color;
     }
   }
+  .nav-footer {
+    margin-top: 2rem;
+    .version {
+      color: $text-color;
+      padding-left: 1rem;
+    }
+  }
 }
