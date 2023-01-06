@@ -1,15 +1,5 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Login from "./Login";
-
-// jest.mock("axios", () => ({
-//   __esModule: true,
-
-//   default: {
-//     get: () => ({
-//       data: { id: 1, name: "John" },
-//     }),
-//   },
-// }));
 
 test("email input should be rendered", () => {
   render(<Login />);
