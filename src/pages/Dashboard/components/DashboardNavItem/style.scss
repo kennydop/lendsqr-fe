@@ -1,0 +1,52 @@
+@import "../../../../global.scss";
+
+.dashboard-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 1rem 1.2rem;
+  color: $primary-color;
+  opacity: 0.5;
+  font-size: 0.9rem;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    opacity: 1;
+    background-color: $transparent-secondary-color;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0.3rem;
+      height: 100%;
+      background-color: $secondary-color;
+      left: 0;
+    }
+  }
+  &:active {
+    opacity: 1;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0.3rem;
+      height: 100%;
+      background-color: $primary-color;
+      left: 0;
+    }
+  }
+  &.active {
+    opacity: 1;
+    background-color: $transparent-secondary-color;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0.3rem;
+      height: 100%;
+      background-color: $secondary-color;
+      left: 0;
+    }
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}

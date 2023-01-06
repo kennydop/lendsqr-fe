@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Login from "./pages/Login/Login";
-import Loader from "./components/Loader/Loader";
+import Loader from "./pages/Dashboard/components/Loader/Loader";
 import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
-import UserDetailsView from "./components/UserDetailsView/UserDetailsView";
-import Dashboard from "./pages/Dashboard";
+import UserDetailsView from "./pages/Dashboard/components/UserDetailsView/UserDetailsView";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   const [user, setUser] = useState(null);

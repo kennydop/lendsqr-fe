@@ -5,7 +5,7 @@ import { User } from "../../types";
 import { useNavigate } from "react-router-dom";
 import "./login.scss";
 import { useState } from "react";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../Dashboard/components/Loader/Loader";
 
 function Login() {
   const navigator = useNavigate();

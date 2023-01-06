@@ -1,9 +1,9 @@
-import DashboardLeftNav from "../../components/DashboardLeftNav/DashboardLeftNav";
-import { Header } from "../../components/Header/Header";
+import DashboardLeftNav from "../../pages/Dashboard/components/DashboardLeftNav/DashboardLeftNav";
 import "./style.scss";
 import { Outlet } from "react-router-dom";
 import { User } from "../../types";
 import { closeModal } from "../../helpers/modal";
+import { Header } from "../../pages/Dashboard/components/Header/Header";
 
 interface Props {
   user: User;
