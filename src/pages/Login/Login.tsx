@@ -2,13 +2,11 @@ import lendsqrl from "../../assets/lendsqr-l.png";
 import lendsqri from "../../assets/lendsqr-i.png";
 import pablo_signin from "../../assets/pablo-sign-in.png";
 import { User } from "../../types";
-import { useNavigate } from "react-router-dom";
 import "./login.scss";
 import { useState } from "react";
 import Loader from "../Dashboard/components/Loader/Loader";
 
 function Login() {
-  const navigator = useNavigate();
   const [loading, setLoading] = useState(false);
 
   async function loginUser(e: any) {

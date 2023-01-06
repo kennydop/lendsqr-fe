@@ -66,7 +66,7 @@ function UserDetailsView() {
                   <div className="txt-lg">{`${user.profile.firstName} ${user.profile.lastName}`}</div>
                   <div className="txt-li capitalize">{user.accountNumber}</div>
                 </div>
-                <div className="divider"></div>
+                <div className="vert-divider"></div>
                 <div className="user-tier">
                   <div className="txt">User&apos;s Tier</div>
                   <div className="stars">
@@ -75,7 +75,7 @@ function UserDetailsView() {
                     <FontAwesomeIcon icon={regular("star")} color="orange" />
                   </div>
                 </div>
-                <div className="divider"></div>
+                <div className="vert-divider"></div>
                 <div className="loaned-money-details">
                   <div className="txt-lg">{`${user.profile?.currency ?? "NGN"}${
                     user.accountBalance

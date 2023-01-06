@@ -89,6 +89,12 @@ header {
       font-size: 1rem;
       cursor: pointer;
       font-weight: 600;
+      @include lt-md {
+        font-size: 0.9rem;
+      }
+      @include lt-xs {
+        display: none;
+      }
     }
     .bell {
       color: $primary-color;

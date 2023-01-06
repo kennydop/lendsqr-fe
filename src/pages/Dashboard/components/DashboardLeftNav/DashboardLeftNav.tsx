@@ -84,6 +84,7 @@ function DashboardLeftNav() {
         </div>
       </div>
       <div className="nav-footer">
+        <div className="hor-divider" />
         <div className="dashboard-nav-item" onClick={() => logOut()}>
           <FontAwesomeIcon icon={solid("sign-out")} />
           <p className="lg-hide">Log Out</p>
